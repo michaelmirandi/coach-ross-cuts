@@ -72,7 +72,7 @@ export default function Home() {
           sx={{ 
             position: isMobile ? "static" : "fixed",
             width: isMobile ? "100%" : "50%",
-            height: isMobile ? "75vh" : "calc(100vh - 64px)",
+            height: isMobile ? "80vh" : "calc(100vh - 64px)",
             top: "64px",
             left: 0,
             display: "flex",
@@ -220,7 +220,7 @@ export default function Home() {
               padding: isMobile ? "2rem 0" : "1rem 2rem 0rem",
               position: "relative",
               height: isMobile ? "60vh" : "95vh",
-              marginTop: isMobile ? '-1rem' : "auto",
+              marginTop: isMobile ? '-.5rem' : "auto",
             }}
           >            
             <Box 

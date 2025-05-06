@@ -157,43 +157,44 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
             }}>
               <PaymentIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
             </Box>
-            <Box>
+            <Box display='flex' alignItems={isMobile ? 'flex-start' : 'center'} flexDirection={isMobile ? 'column' : 'row'} width='100%'>
               <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 PayPal
               </Typography>
+              <Button 
+                variant="contained"
+                color="primary"
+                onClick={() => {
+                  const email = "coachrosscuts@gmail.com";
+                  // PayPal has well-supported direct URLs for donations
+                  // This will open the PayPal site configured for sending money
+                  // window.open(`https://www.paypal.com/paypalme/${email.split('@')[0]}`, '_blank');
+                  
+                  // Alternative direct link if the PayPal.me doesn't work
+                  window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent(email)}&currency_code=USD`, '_blank');
+                }}
+                sx={{
+                  fontWeight: 'bold',
+                  ml: isMobile ? undefined : 'auto',
+                  borderRadius: 2,
+                  bgcolor: '#0070ba', // PayPal blue
+                  '&:hover': {
+                    bgcolor: '#005ea6', // Darker PayPal blue
+                    boxShadow: '0 6px 12px rgba(0,0,0,0.2)',
+                  },
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                }}
+                startIcon={
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.067 8.478c.492.88.629 1.865.629 3.06 0 3.153-1.91 4.863-5.209 4.863h-.484c-.422 0-.774.348-.84.758l-.047.185-.378 2.377-.026.132c-.65.41-.417.758-.838.758h-2.46c-.356 0-.59-.354-.507-.695.155-.634 1.1-7.003 1.1-7.003.057-.38.383-.654.77-.654h1.696c4.558 0 7.436-1.858 8.419-6.008a4.567 4.567 0 01-1.825 2.227zM17.842 0c.382 0 .735.047 1.063.144.67.619 1.235 1.36 1.6 2.402.428 1.173.428 2.16 0 3.362-.507 1.43-1.389 2.412-2.658 3.151a7.49 7.49 0 01-1.259.51 18.03 18.03 0 01-.713.205c-.069.017-.138.035-.208.052-1.854.464-3.99.712-6.404.712h-3.06a.908.908 0 00-.898.793l-1.208 7.659a.43.43 0 01-.427.371H.387c-.356 0-.592-.354-.509-.696L4.18.695C4.236.293 4.583 0 4.978 0h12.864z" />
+                  </svg>
+                }
+              >
+                Donate with PayPal
+              </Button>
             </Box>
 
-            <Button 
-              variant="contained"
-              color="primary"
-              onClick={() => {
-                const email = "coachrosscuts@gmail.com";
-                // PayPal has well-supported direct URLs for donations
-                // This will open the PayPal site configured for sending money
-                // window.open(`https://www.paypal.com/paypalme/${email.split('@')[0]}`, '_blank');
-                
-                // Alternative direct link if the PayPal.me doesn't work
-                window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent(email)}&currency_code=USD`, '_blank');
-              }}
-              sx={{
-                fontWeight: 'bold',
-                ml: 'auto',
-                borderRadius: 2,
-                bgcolor: '#0070ba', // PayPal blue
-                '&:hover': {
-                  bgcolor: '#005ea6', // Darker PayPal blue
-                  boxShadow: '0 6px 12px rgba(0,0,0,0.2)',
-                },
-                boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
-              }}
-              startIcon={
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20.067 8.478c.492.88.629 1.865.629 3.06 0 3.153-1.91 4.863-5.209 4.863h-.484c-.422 0-.774.348-.84.758l-.047.185-.378 2.377-.026.132c-.65.41-.417.758-.838.758h-2.46c-.356 0-.59-.354-.507-.695.155-.634 1.1-7.003 1.1-7.003.057-.38.383-.654.77-.654h1.696c4.558 0 7.436-1.858 8.419-6.008a4.567 4.567 0 01-1.825 2.227zM17.842 0c.382 0 .735.047 1.063.144.67.619 1.235 1.36 1.6 2.402.428 1.173.428 2.16 0 3.362-.507 1.43-1.389 2.412-2.658 3.151a7.49 7.49 0 01-1.259.51 18.03 18.03 0 01-.713.205c-.069.017-.138.035-.208.052-1.854.464-3.99.712-6.404.712h-3.06a.908.908 0 00-.898.793l-1.208 7.659a.43.43 0 01-.427.371H.387c-.356 0-.592-.354-.509-.696L4.18.695C4.236.293 4.583 0 4.978 0h12.864z" />
-                </svg>
-              }
-            >
-              Donate with PayPal
-            </Button>
+
           </Box>
           
           <Box sx={{ 
@@ -215,37 +216,38 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
             }}>
               <AccountBalanceIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
             </Box>
-            <Box>
+            <Box display='flex' alignItems={isMobile ? 'flex-start' : 'center'} flexDirection={isMobile ? 'column' : 'row'} width='100%'>
               <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 Zelle
               </Typography>
+                          {/* Distinctly Styled Zelle Button */}
+              <Button 
+                variant="contained"
+                onClick={() => {
+                  const recipient = "coachrosscuts@gmail.com";
+                  alert(`Please open your banking app with Zelle and send money to: ${recipient}`);
+                  window.open("https://www.zellepay.com/", '_blank');
+                }}
+                sx={{
+                  fontWeight: 'bold',
+                  borderRadius: 2,
+                  ml: isMobile ? undefined : 'auto',
+                  background: 'linear-gradient(135deg, #6E31C9 0%, #44148E 100%)',
+                  color: 'white',
+                  border: '2px solid #8544E1',
+                  boxShadow: '0 4px 12px rgba(110, 49, 201, 0.3)',
+                  textTransform: 'none',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #7B3BE0 0%, #5B28A8 100%)',
+                    boxShadow: '0 6px 16px rgba(110, 49, 201, 0.4)',
+                    border: '2px solid #9A5CF2',
+                  }
+                }}
+              >
+                  Donate with Zelle
+              </Button>
             </Box>
-            {/* Distinctly Styled Zelle Button */}
-            <Button 
-              variant="contained"
-              onClick={() => {
-                const recipient = "coachrosscuts@gmail.com";
-                alert(`Please open your banking app with Zelle and send money to: ${recipient}`);
-                window.open("https://www.zellepay.com/", '_blank');
-              }}
-              sx={{
-                fontWeight: 'bold',
-                borderRadius: 2,
-                ml: 'auto',
-                background: 'linear-gradient(135deg, #6E31C9 0%, #44148E 100%)',
-                color: 'white',
-                border: '2px solid #8544E1',
-                boxShadow: '0 4px 12px rgba(110, 49, 201, 0.3)',
-                textTransform: 'none',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #7B3BE0 0%, #5B28A8 100%)',
-                  boxShadow: '0 6px 16px rgba(110, 49, 201, 0.4)',
-                  border: '2px solid #9A5CF2',
-                }
-              }}
-            >
-                Donate with Zelle
-            </Button>
+
           </Box>
           <Box sx={{ 
             display: 'flex', 
@@ -317,7 +319,7 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
         <Box sx={{ 
           display: 'flex', 
           flexDirection: isMobile ? 'column' : 'row', 
-          gap: isMobile ? 2 : 10.5,
+          gap: isMobile ? 4 : 10.5,
           mt: 4
         }}>
           {/* Email Contact */}
