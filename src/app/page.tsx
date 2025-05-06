@@ -72,7 +72,7 @@ export default function Home() {
           sx={{ 
             position: isMobile ? "static" : "fixed",
             width: isMobile ? "100%" : "50%",
-            height: isMobile ? "70vh" : "calc(100vh - 64px)",
+            height: isMobile ? "75vh" : "calc(100vh - 64px)",
             top: "64px",
             left: 0,
             display: "flex",
@@ -84,6 +84,7 @@ export default function Home() {
             overflow: isMobile ? "auto" : "hidden",
             padding: isMobile ? "2rem" : 0,
             paddingBottom: isMobile ? "4rem" : 0,
+            overflowY: isMobile ? 'hidden' : undefined
           }}
         >
           {/* Top section with title and intro */}
@@ -218,8 +219,8 @@ export default function Home() {
             sx={{ 
               padding: isMobile ? "2rem 0" : "1rem 2rem 0rem",
               position: "relative",
-              height: isMobile ? "75vh" : "95vh",
-              marginTop: "auto",
+              height: isMobile ? "60vh" : "95vh",
+              marginTop: isMobile ? '-1rem' : "auto",
             }}
           >            
             <Box 
@@ -232,11 +233,11 @@ export default function Home() {
               {imageUrls.map((url, index) => {
                 // Calculate positions for scrapbook effect
                 const positions = [
-                  { top: isMobile ? '-45%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
-                  { top: '10%', left: '25%', zIndex: 8, rotate: 5 },
-                  { top: isMobile ? '-35%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
-                  { top: '35%', left: '0%', zIndex: 7, rotate: 7 },
-                  { top: isMobile ? '60%' : '45%', left: '60%', zIndex: 2, rotate: -5 },
+                  { top: isMobile ? '-15%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
+                  { top: isMobile ? '0%' : '10%', left: '25%', zIndex: 8, rotate: 5 },
+                  { top: isMobile ? '-10%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
+                  { top: isMobile ? "15%" : '35%', left: '0%', zIndex: 7, rotate: 7 },
+                  { top: isMobile ? '15%' : '45%', left: isMobile ? '50%' : '60%', zIndex: 2, rotate: -5 },
                   // { top: '40%', left: '60%', zIndex: 1, rotate: 9 },
                 ];
                 
