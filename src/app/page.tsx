@@ -103,8 +103,8 @@ export default function Home() {
             >
               <Box sx={{ 
                 mr: 3, 
-                width: isMobile ? 80 : 180,
-                height: isMobile ? 80 : 180,
+                width: isMobile ? 80 : 160,
+                height: isMobile ? 80 : 160,
                 borderRadius: '50%', 
                 background: 'white',
                 overflow: 'hidden',
@@ -119,8 +119,8 @@ export default function Home() {
                 <Image
                   src="/logo.png"
                   alt="Coach's Cuts logo"
-                  width={isMobile ? 70 : 170}
-                  height={isMobile ? 70 : 170}
+                  width={isMobile ? 70 : 150}
+                  height={isMobile ? 70 : 150}
                   style={{
                     objectFit: "contain",
                     padding: 3,

@@ -170,10 +170,10 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
                 const email = "coachrosscuts@gmail.com";
                 // PayPal has well-supported direct URLs for donations
                 // This will open the PayPal site configured for sending money
-                window.open(`https://www.paypal.com/paypalme/${email.split('@')[0]}`, '_blank');
+                // window.open(`https://www.paypal.com/paypalme/${email.split('@')[0]}`, '_blank');
                 
                 // Alternative direct link if the PayPal.me doesn't work
-                // window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent(email)}&currency_code=USD`, '_blank');
+                window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent(email)}&currency_code=USD`, '_blank');
               }}
               sx={{
                 fontWeight: 'bold',
@@ -316,8 +316,8 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
         
         <Box sx={{ 
           display: 'flex', 
-          flexDirection: 'row', 
-          gap: 10.5,
+          flexDirection: isMobile ? 'column' : 'row', 
+          gap: isMobile ? 2 : 10.5,
           mt: 4
         }}>
           {/* Email Contact */}
