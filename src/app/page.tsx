@@ -19,7 +19,7 @@ export default function Home() {
     "/2.jpg", 
     "/3.jpg",
     "/4.jpg",
-    "/5.jpg",
+    // "/5.jpg",
     "/6.jpg",
   ];
 
@@ -88,12 +88,47 @@ export default function Home() {
         >
           {/* Top section with title and intro */}
           <Box sx={{ 
-            padding: isMobile ? 0 : "3rem",
+            padding: isMobile ? 0 : "1rem 3rem",
             paddingBottom: 0,
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
+            position: 'relative'
           }}>
+            <Box sx={{position: 'absolute', top: '2.5rem', right: isMobile ? '-1rem' : '1rem'}}
+                  component={motion.div}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <Box sx={{ 
+                mr: 3, 
+                width: isMobile ? 80 : 180,
+                height: isMobile ? 80 : 180,
+                borderRadius: '50%', 
+                background: 'white',
+                overflow: 'hidden',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+
+              }}>
+                <Image
+                  src="/logo.png"
+                  alt="Coach's Cuts logo"
+                  width={isMobile ? 70 : 170}
+                  height={isMobile ? 70 : 170}
+                  style={{
+                    objectFit: "contain",
+                    padding: 3,
+                  }}
+                />
+              </Box>
+            </Box>
+
             <Box 
               component={motion.div}
               initial={{ opacity: 0, y: 30 }}
@@ -105,7 +140,7 @@ export default function Home() {
                 sx={{ 
                   fontFamily: theme.typography.h1.fontFamily,
                   letterSpacing: '0.1em',
-                  fontSize: '1rem',
+                  fontSize: isMobile ? '1.1rem' : '1.4rem',
                   color: '#A71930',
                   fontWeight: 900,
                 }}
@@ -127,21 +162,21 @@ export default function Home() {
                   letterSpacing: '0.02em',
                   lineHeight: 1.2,
                   fontSize: isMobile ? '2.5rem' : '3.5rem',
-                  mt: 2,
-                  mb: 3,
+                  mt: 1,
+                  mb: 1,
                   maxWidth: '600px',
                   backgroundImage: 'linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.7) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Coach Ross Cuts
+                Coach&apos;s Cuts
                 <Typography 
                   variant="h5" 
                   component="span" 
                   sx={{ 
                     display: 'block',
-                    mt: 1,
+                    mt: .25,
                     fontWeight: 400,
                     opacity: 0.9,
                     backgroundImage: 'linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.7) 100%)',
@@ -162,7 +197,7 @@ export default function Home() {
               <Typography 
                 variant="body1" 
                 sx={{ 
-                  mb: 4,
+                  mb: isMobile ? 8 : 4,
                   maxWidth: '550px',
                   fontSize: '1.1rem',
                   lineHeight: 1.7,
@@ -197,12 +232,12 @@ export default function Home() {
               {imageUrls.map((url, index) => {
                 // Calculate positions for scrapbook effect
                 const positions = [
-                  { top: '0%', left: '5%', zIndex: 6, rotate: -8 },
-                  { top: '10%', left: '25%', zIndex: 5, rotate: 5 },
-                  { top: '5%', left: '50%', zIndex: 4, rotate: -6 },
-                  { top: '35%', left: '0%', zIndex: 3, rotate: 7 },
-                  { top: '45%', left: '30%', zIndex: 2, rotate: -5 },
-                  { top: '40%', left: '60%', zIndex: 1, rotate: 9 },
+                  { top: isMobile ? '-45%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
+                  { top: '10%', left: '25%', zIndex: 8, rotate: 5 },
+                  { top: isMobile ? '-35%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
+                  { top: '35%', left: '0%', zIndex: 7, rotate: 7 },
+                  { top: isMobile ? '60%' : '45%', left: '60%', zIndex: 2, rotate: -5 },
+                  // { top: '40%', left: '60%', zIndex: 1, rotate: 9 },
                 ];
                 
                 const pos = positions[index];
@@ -223,8 +258,9 @@ export default function Home() {
                       left: pos.left,
                       zIndex: pos.zIndex,
                       transformOrigin: "center",
+                      rotate: pos.rotate * .5,
                       transform: `rotate(${pos.rotate}deg)`,
-                      width: isMobile ? "40%" : "38%",
+                      width: isMobile ? "40%" : "35%",
                     }}
                   >
                     <Paper
@@ -264,7 +300,7 @@ export default function Home() {
           marginLeft: isMobile ? 0 : "50%",
           width: isMobile ? "100%" : "50%",
           minHeight: isMobile ? "50vh" : "calc(100vh - 64px)",
-          padding: isMobile ? "2rem" : "3rem 4rem",
+          padding: isMobile ? "1.5rem" : "3rem 4rem",
           background: '#050e15',
         }}>
           <InfoSection isMobile={isMobile}/>

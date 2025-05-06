@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { cookie, lato } from './fonts'; // Import both fonts
 
 // Create a more elegant color palette based on the provided colors
 const theme = createTheme({
@@ -25,50 +26,77 @@ const theme = createTheme({
     },
   },
   typography: {
-    // Use a system of cursive fonts with fallbacks to ensure readability
-    fontFamily: '"Libre Baskerville", "Playfair Display", "Cormorant Garamond", "Georgia", serif',
+    // Set Lato as the default font family
+    fontFamily: lato.style.fontFamily,
     
-    // Customize heading styles
+    // Customize heading styles with Cookie font
     h1: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 600,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400, // Cookie only has 400 weight
       letterSpacing: '0.02em',
     },
     h2: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 600,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400,
       letterSpacing: '0.01em',
     },
     h3: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 500,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400,
     },
     h4: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 500,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400,
     },
     h5: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 500,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400,
     },
     h6: {
-      fontFamily: '"Playfair Display", "Cormorant", "Georgia", serif',
-      fontWeight: 500,
+      fontFamily: cookie.style.fontFamily,
+      fontWeight: 400,
     },
-    // Body text 
+    // Body text with Lato
     body1: {
-      fontFamily: '"Libre Baskerville", "Georgia", serif',
+      fontFamily: lato.style.fontFamily,
       lineHeight: 1.6,
+      fontSize: '1rem',
+      fontWeight: 400,
     },
     body2: {
-      fontFamily: '"Libre Baskerville", "Georgia", serif',
+      fontFamily: lato.style.fontFamily,
       lineHeight: 1.6,
+      fontSize: '0.875rem',
+      fontWeight: 400,
+    },
+    subtitle1: {
+      fontFamily: lato.style.fontFamily,
+      fontWeight: 400,
+      fontSize: '1rem',
+      lineHeight: 1.5,
+    },
+    subtitle2: {
+      fontFamily: lato.style.fontFamily,
+      fontWeight: 400,
+      fontSize: '0.875rem',
+      lineHeight: 1.5,
     },
     button: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
-      fontWeight: 500,
+      fontFamily: lato.style.fontFamily, // Changed to Lato for better readability
+      fontWeight: 700, // Bold for buttons
       letterSpacing: '0.05em',
       textTransform: 'none', // Don't force uppercase on buttons
+    },
+    caption: {
+      fontFamily: lato.style.fontFamily,
+      fontSize: '0.75rem',
+      lineHeight: 1.4,
+    },
+    overline: {
+      fontFamily: lato.style.fontFamily,
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
+      fontSize: '0.75rem',
     },
   },
   components: {

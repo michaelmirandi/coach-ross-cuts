@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { motion } from "framer-motion";
+import { cookie } from '../fonts'; // Import both fonts
 
 interface HeaderProps {
   navItems: string[];
@@ -84,10 +85,11 @@ export default function Header({ navItems }: HeaderProps) {
               fontFamily: theme.typography.h1.fontFamily,
               letterSpacing: '0.05em',
               cursor: 'pointer',
+              fontSize: '1.8rem'
             }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            Coach Ross Cuts
+            Coach&apos;s Cuts
           </Typography>
 
           {/* Mobile menu button */}
@@ -126,6 +128,10 @@ export default function Header({ navItems }: HeaderProps) {
                       opacity: 1,
                       textDecoration: 'underline'
                     },
+                          fontFamily: cookie.style.fontFamily,
+                    
+                    fontSize: '1.5rem'
+
                   }}
                 >
                   {item}
@@ -162,7 +168,7 @@ export default function Header({ navItems }: HeaderProps) {
                   sx={{ 
                     '&:hover': {
                       background: 'rgba(255, 255, 255, 0.1)',
-                    }
+                    },
                   }}
                 >
                   <ListItemText 
@@ -171,6 +177,8 @@ export default function Header({ navItems }: HeaderProps) {
                       sx: { 
                         fontFamily: theme.typography.h6.fontFamily,
                         letterSpacing: '0.03em',
+                        fontSize: '1.5rem'
+
                       }
                     }}
                   />

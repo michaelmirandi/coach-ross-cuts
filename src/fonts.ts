@@ -1,16 +1,13 @@
-// First, create a new file called 'fonts.ts' in your project:
-// src/fonts.ts
-import { Playfair_Display, Libre_Baskerville } from 'next/font/google';
+import { Cookie, Lato } from 'next/font/google';
 
-export const playfairDisplay = Playfair_Display({
+export const cookie = Cookie({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400'],
 });
 
-export const libreBaskerville = Libre_Baskerville({
+export const lato = Lato({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '700'],
+  weight: ['300', '400', '700'],
 });
-

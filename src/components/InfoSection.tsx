@@ -1,9 +1,10 @@
 "use client";
 
-import { Box, Typography, Paper, useTheme, alpha } from "@mui/material";
+import { Box, Typography, Paper, useTheme, alpha, Button, Link } from "@mui/material";
 import { motion } from "framer-motion";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import EmailIcon from '@mui/icons-material/Email';
 
 interface GlassCardProps {
     children: React.ReactNode;
@@ -63,7 +64,7 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
       sx={{ 
         fontFamily: theme.typography.h4.fontFamily,
         mb: 3,
-        fontSize: isMobile ? '1.5rem' : undefined,
+        fontSize: isMobile ? '1.5rem' : '2.7rem',
         color: 'white',
         position: 'relative',
         paddingBottom: '10px',
@@ -149,18 +150,50 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               mr: 3, 
               p: 2, 
               borderRadius: '50%', 
-              background: alpha('#A71930', 0.2)
+              background: alpha('#A71930', 0.2),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
-              <PaymentIcon sx={{ color: '#A71930', fontSize: '2rem' }} />
+              <PaymentIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
             </Box>
             <Box>
-              <Typography variant="h6" sx={{ color: 'white', mb: 0.5 }}>
+              <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 PayPal
               </Typography>
-              <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                Send your donation to: donations@coachrosscuts.org
-              </Typography>
             </Box>
+
+            <Button 
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                const email = "coachrosscuts@gmail.com";
+                // PayPal has well-supported direct URLs for donations
+                // This will open the PayPal site configured for sending money
+                window.open(`https://www.paypal.com/paypalme/${email.split('@')[0]}`, '_blank');
+                
+                // Alternative direct link if the PayPal.me doesn't work
+                // window.open(`https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${encodeURIComponent(email)}&currency_code=USD`, '_blank');
+              }}
+              sx={{
+                fontWeight: 'bold',
+                ml: 'auto',
+                borderRadius: 2,
+                bgcolor: '#0070ba', // PayPal blue
+                '&:hover': {
+                  bgcolor: '#005ea6', // Darker PayPal blue
+                  boxShadow: '0 6px 12px rgba(0,0,0,0.2)',
+                },
+                boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+              }}
+              startIcon={
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.067 8.478c.492.88.629 1.865.629 3.06 0 3.153-1.91 4.863-5.209 4.863h-.484c-.422 0-.774.348-.84.758l-.047.185-.378 2.377-.026.132c-.65.41-.417.758-.838.758h-2.46c-.356 0-.59-.354-.507-.695.155-.634 1.1-7.003 1.1-7.003.057-.38.383-.654.77-.654h1.696c4.558 0 7.436-1.858 8.419-6.008a4.567 4.567 0 01-1.825 2.227zM17.842 0c.382 0 .735.047 1.063.144.67.619 1.235 1.36 1.6 2.402.428 1.173.428 2.16 0 3.362-.507 1.43-1.389 2.412-2.658 3.151a7.49 7.49 0 01-1.259.51 18.03 18.03 0 01-.713.205c-.069.017-.138.035-.208.052-1.854.464-3.99.712-6.404.712h-3.06a.908.908 0 00-.898.793l-1.208 7.659a.43.43 0 01-.427.371H.387c-.356 0-.592-.354-.509-.696L4.18.695C4.236.293 4.583 0 4.978 0h12.864z" />
+                </svg>
+              }
+            >
+              Donate with PayPal
+            </Button>
           </Box>
           
           <Box sx={{ 
@@ -175,16 +208,85 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               mr: 3, 
               p: 2, 
               borderRadius: '50%', 
-              background: alpha('#A71930', 0.2)
+              background: alpha('#A71930', 0.2),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
-              <AccountBalanceIcon sx={{ color: '#A71930', fontSize: '2rem' }} />
+              <AccountBalanceIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
             </Box>
             <Box>
-              <Typography variant="h6" sx={{ color: 'white', mb: 0.5 }}>
+              <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 Zelle
               </Typography>
+            </Box>
+            {/* Distinctly Styled Zelle Button */}
+            <Button 
+              variant="contained"
+              onClick={() => {
+                const recipient = "coachrosscuts@gmail.com";
+                alert(`Please open your banking app with Zelle and send money to: ${recipient}`);
+                window.open("https://www.zellepay.com/", '_blank');
+              }}
+              sx={{
+                fontWeight: 'bold',
+                borderRadius: 2,
+                ml: 'auto',
+                background: 'linear-gradient(135deg, #6E31C9 0%, #44148E 100%)',
+                color: 'white',
+                border: '2px solid #8544E1',
+                boxShadow: '0 4px 12px rgba(110, 49, 201, 0.3)',
+                textTransform: 'none',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #7B3BE0 0%, #5B28A8 100%)',
+                  boxShadow: '0 6px 16px rgba(110, 49, 201, 0.4)',
+                  border: '2px solid #9A5CF2',
+                }
+              }}
+            >
+                Donate with Zelle
+            </Button>
+          </Box>
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            p: 2,
+            borderRadius: '12px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <Box sx={{ 
+              mr: 3, 
+              p: 2, 
+              borderRadius: '50%', 
+              background: alpha('#A71930', 0.2),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <EmailIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
+            </Box>
+            <Box>
+              <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
+                Large Donations
+              </Typography>
+              {/* Email Link for Larger Donations */}
               <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                Send your donation to: zelle@coachrosscuts.org
+                For larger donations, please email{' '}
+                <Link 
+                  href="mailto:coachrosscuts@gmail.com?subject=Donation%20to%20Coach's%20Cuts&body=I'd%20like%20to%20make%20a%20donation%20to%20support%20Coach's%20Cuts.%20Please%20let%20me%20know%20the%20best%20way%20to%20proceed%20with%20a%20larger%20donation.%0A%0AThank%20you%20for%20your%20important%20work%20in%20the%20community."
+                  sx={{ 
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    textDecoration: 'underline',
+                    ml: '.1rem',
+                    '&:hover': {
+                      color: '#A71930',
+                      textDecoration: 'underline'
+                    }
+                  }}
+                >
+                  coachrosscuts@gmail.com
+                </Link>
               </Typography>
             </Box>
           </Box>
@@ -201,6 +303,106 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
         >
           All donations are tax-deductible under our 501(c)(3) status
         </Typography>
+      </GlassCard>
+      {/* Contact Section */}
+      <GlassCard delay={0.3} id='contact' isMobile={isMobile}>
+        <SectionTitle isMobile={isMobile}>Contact Us</SectionTitle>
+        <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.8, fontSize: 'inherit', mb: 3 }}>
+          Have questions about our mission or want to get involved? We&apos;d love to hear from you. 
+          Reach out to Coach&apos;s Cuts through email or social media, and we&apos;ll respond as soon as possible. 
+          Whether you&apos;re interested in volunteering, sponsoring an event, or just learning more about what we do, 
+          we&apos;re here to connect!
+        </Typography>
+        
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: 'row', 
+          gap: 10.5,
+          mt: 4
+        }}>
+          {/* Email Contact */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            gap: 2
+          }}>
+            <Box sx={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+              borderRadius: '50%', 
+              width: 48, 
+              height: 48,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </Box>
+            <Box>
+              <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.9)', mb: 0.5, fontWeight: 500 }}>
+                Email
+              </Typography>
+              <Link 
+                href="mailto:coachrosscuts@gmail.com?subject=Inquiry%20about%20Coach's%20Cuts"
+                sx={{ 
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  textDecoration: 'none',
+                  '&:hover': {
+                    color: '#A71930',
+                    textDecoration: 'underline'
+                  }
+                }}
+              >
+                coachrosscuts@gmail.com
+              </Link>
+            </Box>
+          </Box>
+          
+          {/* Instagram Contact */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            gap: 2
+          }}>
+            <Box sx={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+              borderRadius: '50%', 
+              width: 48, 
+              height: 48,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+                <rect width="20" height="20" x="2" y="2" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </Box>
+            <Box>
+              <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.9)', mb: 0.5, fontWeight: 500 }}>
+                Instagram
+              </Typography>
+              <Link 
+                href="https://www.instagram.com/frankyross_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ 
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  textDecoration: 'none',
+                  '&:hover': {
+                    color: '#A71930',
+                    textDecoration: 'underline'
+                  }
+                }}
+              >
+                @frankyross_
+              </Link>
+            </Box>
+          </Box>
+        </Box>
       </GlassCard>
     </>
   );
