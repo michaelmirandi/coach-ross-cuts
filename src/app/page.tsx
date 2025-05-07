@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import InfoSection from "../components/InfoSection";
 import Image from "next/image";
+import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
+import '@leenguyen/react-flip-clock-countdown/dist/index.css';
 
 export default function Home() {
   const theme = useTheme();
@@ -96,7 +98,7 @@ export default function Home() {
             justifyContent: "center",
             position: 'relative'
           }}>
-            <Box sx={{position: 'absolute', top: '2.5rem', right: isMobile ? '-1rem' : '1rem'}}
+            <Box sx={{position: 'absolute', top: isMobile ? '6rem' : '2.5rem', right: isMobile ? '-1rem' : '1rem'}}
                   component={motion.div}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -171,23 +173,53 @@ export default function Home() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                Coach&apos;s Cuts
-                <Typography 
-                  variant="h5" 
-                  component="span" 
-                  sx={{ 
-                    display: 'block',
-                    mt: .25,
-                    fontWeight: 400,
-                    opacity: 0.9,
-                    backgroundImage: 'linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.7) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  One Haircut at a Time
-                </Typography>
+                4th Annual Coach&apos;s Cuts
+
+
               </Typography>
+              <Box display='flex' alignItems={'flex-start'} mb={isMobile ? '.5rem' : 0} justifyContent={'flex-start'} gap={isMobile ? '1rem' : '2rem'} flexDirection={isMobile ? 'column' : 'row'}>
+                  <Box>
+                    <Typography 
+                      variant="h5" 
+                      component="span" 
+                      sx={{ 
+                        display: 'block',
+                        mt: -1.5,
+                        fontWeight: 400,
+                        opacity: 0.9,
+                        backgroundImage: 'linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.7) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
+                    >
+                      One Haircut at a Time
+                    </Typography>
+                    <Typography 
+                      variant="h5" 
+                      component="span" 
+                      sx={{ 
+                        display: 'block',
+                        mt: .25,
+                        mb: isMobile ? 0 : 1.5,
+                        fontWeight: 400,
+                        opacity: 0.9,
+                        backgroundImage: 'linear-gradient(135deg, #ffffff 30%, rgba(255,255,255,0.7) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
+                    >
+                      June 6th, 2025
+                    </Typography>
+                  </Box>
+                  <FlipClockCountdown to={new Date('2025-06-06T00:00:00-05:00')}
+                          labels={['DAYS', 'HOURS', 'MINS', 'SECS']}
+                          labelStyle={{ fontSize: 10, fontWeight: 500, textTransform: 'uppercase', color: '#FF9800' }}
+                          digitBlockStyle={{ width: 12, height: 20, fontSize: 25, color: '#FF9800', }}
+                          dividerStyle={{ color: 'transparent', height: 0 }}
+                          separatorStyle={{ color: '#FF9800', size: '6px' }}
+                          duration={0.5}
+                   />
+                  </Box>
             </motion.div>
 
             <motion.div
