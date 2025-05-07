@@ -84,7 +84,7 @@ export default function Home() {
             backdropFilter: 'blur(10px)',
             borderRight: '1px solid rgba(255, 255, 255, 0.1)',
             overflow: isMobile ? "auto" : "hidden",
-            padding: isMobile ? "2rem" : 0,
+            padding: isMobile ? "1rem" : 0,
             paddingBottom: isMobile ? "4rem" : 0,
             overflowY: isMobile ? 'hidden' : undefined
           }}
@@ -214,7 +214,7 @@ export default function Home() {
                   <FlipClockCountdown to={new Date('2025-06-06T00:00:00-05:00')}
                           labels={['DAYS', 'HOURS', 'MINS', 'SECS']}
                           labelStyle={{ fontSize: 10, fontWeight: 500, textTransform: 'uppercase', color: '#FF9800' }}
-                          digitBlockStyle={{ width: 12, height: 20, fontSize: 25, color: '#FF9800', }}
+                          digitBlockStyle={{ width: 18, height: 25, fontSize: 23, color: '#FF9800', backgroundColor: '#051D2B'}}
                           dividerStyle={{ color: 'transparent', height: 0 }}
                           separatorStyle={{ color: '#FF9800', size: '6px' }}
                           duration={0.5}
