@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import EmailIcon from '@mui/icons-material/Email';
+import Image from "next/image";
 
 interface GlassCardProps {
     children: React.ReactNode;
@@ -161,7 +162,12 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 PayPal
               </Typography>
-              <Button 
+              <Box sx={{
+                  ml: isMobile ? undefined : 'auto',
+                  display: 'flex',
+                  alignItems: 'center', gap: '1.5rem'
+              }}>
+<Button 
                 variant="contained"
                 color="primary"
                 onClick={() => {
@@ -175,7 +181,6 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
                 }}
                 sx={{
                   fontWeight: 'bold',
-                  ml: isMobile ? undefined : 'auto',
                   borderRadius: 2,
                   bgcolor: '#0070ba', // PayPal blue
                   '&:hover': {
@@ -187,6 +192,18 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               >
                 Donate
               </Button>
+
+                {!isMobile && <Image
+                  src="/paypal.jpeg"
+                  alt="Coach's Cuts logo"
+                  width={isMobile ? 40 : 100}
+                  height={isMobile ? 40 : 100}
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />}
+              </Box>
+              
             </Box>
 
 
@@ -215,7 +232,11 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
                 Zelle
               </Typography>
-                          {/* Distinctly Styled Zelle Button */}
+              <Box sx={{
+                  ml: isMobile ? undefined : 'auto',
+                  display: 'flex',
+                  alignItems: 'center', gap: '1.5rem'
+              }}>
               <Button 
                 variant="contained"
                 onClick={() => {
@@ -241,6 +262,16 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               >
                   Donate
               </Button>
+              {!isMobile && <Image
+                  src="/chase.png"
+                  alt="Coach's Cuts logo"
+                  width={isMobile ? 40 : 100}
+                  height={isMobile ? 40 : 100}
+                  style={{
+                    objectFit: "contain",
+                  }}
+                />}
+              </Box>
             </Box>
 
           </Box>

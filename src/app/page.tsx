@@ -180,7 +180,7 @@ export default function Home() {
               <Box display='flex' alignItems={'flex-start'} mb={isMobile ? '.5rem' : 0} justifyContent={'flex-start'} gap={isMobile ? '1rem' : '2rem'} flexDirection={isMobile ? 'column' : 'row'}>
                   <Box>
                     <Typography 
-                      variant="h5" 
+                      variant="h4" 
                       component="span" 
                       sx={{ 
                         display: 'block',
@@ -192,7 +192,7 @@ export default function Home() {
                         WebkitTextFillColor: 'transparent',
                       }}
                     >
-                      One Haircut at a Time
+                      June 6th, 2025
                     </Typography>
                     <Typography 
                       variant="h5" 
@@ -208,7 +208,7 @@ export default function Home() {
                         WebkitTextFillColor: 'transparent',
                       }}
                     >
-                      June 6th, 2025
+                      Covenant House Male & Female
                     </Typography>
                   </Box>
                   <FlipClockCountdown to={new Date('2025-06-06T00:00:00-05:00')}
@@ -237,8 +237,7 @@ export default function Home() {
                   color: 'rgba(255, 255, 255, 0.9)',
                 }}
               >
-                Bringing dignity, medical care, and essential services to Houston&apos;s homeless community through professional haircuts and compassionate support.
-              </Typography>
+This year&apos;s event is right around the corner, please support us if you can!              </Typography>
             </motion.div>
           </Box>
           
