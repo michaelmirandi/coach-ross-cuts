@@ -329,7 +329,7 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
             textAlign: 'center'
           }}
         >
-          All donations are tax-deductible. EIN: 33-4823477
+          All donations are tax-deductible (official 501c3). EIN: 33-4823477
         </Typography>
       </GlassCard>
       {/* Contact Section */}
