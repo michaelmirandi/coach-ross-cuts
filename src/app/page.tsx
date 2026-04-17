@@ -173,7 +173,7 @@ export default function Home() {
                   WebkitTextFillColor: 'transparent',
                 }}
               >
-                4th Annual Coach&apos;s Cuts
+                5th Annual Coach&apos;s Cuts
 
 
               </Typography>
@@ -192,7 +192,7 @@ export default function Home() {
                         WebkitTextFillColor: 'transparent',
                       }}
                     >
-                      June 6th, 2025
+                      Friday, June 5th, 2026
                     </Typography>
                     <Typography 
                       variant="h5" 
@@ -208,10 +208,10 @@ export default function Home() {
                         WebkitTextFillColor: 'transparent',
                       }}
                     >
-                      Covenant House Male & Female
+                      St. Joseph&apos;s Church
                     </Typography>
                   </Box>
-                  <FlipClockCountdown to={new Date('2025-06-06T00:00:00-05:00')}
+                  <FlipClockCountdown to={new Date('2026-06-05T00:00:00-05:00')}
                           labels={['DAYS', 'HOURS', 'MINS', 'SECS']}
                           labelStyle={{ fontSize: 10, fontWeight: 500, textTransform: 'uppercase', color: '#FF9800' }}
                           digitBlockStyle={{ width: 18, height: 25, fontSize: 23, color: '#FF9800', backgroundColor: '#051D2B'}}
