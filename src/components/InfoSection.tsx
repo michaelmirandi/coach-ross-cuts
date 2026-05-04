@@ -229,11 +229,18 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
               <AccountBalanceIcon sx={{ color: '#A71930', fontSize: isMobile ? '1rem' : '2rem' }} />
             </Box>
             <Box display='flex' alignItems={isMobile ? 'flex-start' : 'center'} flexDirection={isMobile ? 'column' : 'row'} width='100%'>
-              <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
-                Zelle
-              </Typography>
+              <Box gap={2}>
+                <Typography variant="h4" sx={{ color: 'white', mb: 0.5 }}>
+                  Zelle
+                </Typography>
+                <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                  Send donation to coachrosscuts@gmail.com
+                </Typography>
+              </Box>
+
               <Box sx={{
                   ml: isMobile ? undefined : 'auto',
+                  mt: isMobile ? 2 : undefined,
                   display: 'flex',
                   alignItems: 'center', gap: '1.5rem'
               }}>
@@ -241,7 +248,7 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
                 variant="contained"
                 onClick={() => {
                   const recipient = "coachrosscuts@gmail.com";
-                  alert(`Please open your banking app with Zelle and send money to: ${recipient}`);
+                  alert(`Please open your banking app with Zelle and send donation to: ${recipient}`);
                   window.open("https://www.zellepay.com/", '_blank');
                 }}
                 sx={{
