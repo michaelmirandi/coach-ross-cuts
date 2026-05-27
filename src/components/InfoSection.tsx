@@ -6,6 +6,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import EmailIcon from '@mui/icons-material/Email';
 import Image from "next/image";
+import { sponsors } from "../data/sponsors";
 
 interface GlassCardProps {
     children: React.ReactNode;
@@ -21,6 +22,14 @@ interface InfoSectionProps {
 
 export default function InfoSection({isMobile}: InfoSectionProps) {
   const theme = useTheme();
+  const getSponsorInitials = (name: string) =>
+    name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((word) => word[0]?.toUpperCase())
+      .join("");
+
   // Styled card component
   const GlassCard = ({ children, delay = 0, id, isMobile, ...props }: GlassCardProps) => (    <Paper
       component={motion.div}
@@ -115,6 +124,110 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
         <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.8, fontSize: 'inherit' }}>
           Vendors such as Olive Garden and others generously donate their food and services as well.
         </Typography>
+      </GlassCard>
+
+      <GlassCard delay={0.25} id='sponsors' isMobile={isMobile}>
+        <SectionTitle isMobile={isMobile}>Sponsors & Partners</SectionTitle>
+        <Typography sx={{ color: 'rgba(255, 255, 255, 0.82)', lineHeight: 1.8, mb: 2.5, fontSize: 'inherit' }}>
+          Organizations and businesses that help make Coach&apos;s Cuts possible.
+        </Typography>
+
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+            gap: 2,
+          }}
+        >
+          {sponsors.map((sponsor) => (
+            <Paper
+              key={sponsor.name}
+              elevation={0}
+              sx={{
+                p: 2,
+                pb: 0,
+                borderRadius: "12px",
+                background: "rgba(255, 255, 255, 0.04)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  aspectRatio: "3 / 2",
+                  borderRadius: "10px",
+                  backgroundColor: sponsor.logoPath ? "#ffffff" : alpha("#A71930", 0.18),
+                  border: sponsor.logoPath
+                    ? "1px solid rgba(0, 0, 0, 0.12)"
+                    : "1px solid rgba(167, 25, 48, 0.45)",
+                  p: sponsor.logoPath ? 1 : 0,
+                  mb: 1.25,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                {sponsor.logoPath ? (
+                  <Image
+                    src={sponsor.logoPath}
+                    alt={`${sponsor.name} logo`}
+                    fill
+                    style={{
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      padding: "8px",
+                    }}
+                  />
+                ) : (
+                  <Typography sx={{ color: "white", fontWeight: 700, letterSpacing: "0.04em", fontSize: "1.1rem" }}>
+                    {getSponsorInitials(sponsor.name)}
+                  </Typography>
+                )}
+              </Box>
+
+              <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5, mb: 1.5 }}>
+                <Box
+                  sx={{
+                    minWidth: 0,
+                  }}>
+                  <Typography sx={{ color: "white", fontWeight: 600, lineHeight: 1.35 }}>
+                    {sponsor.name}
+                  </Typography>
+                  <Box
+                    component="span"
+                    sx={{
+                      display: "inline-block",
+                      mt: 1.5,
+                      px: 1,
+                      py: 0.3,
+                      borderRadius: "999px",
+                      fontSize: "0.72rem",
+                      color: "rgba(255, 255, 255, 0.9)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      background: "rgba(255, 255, 255, 0.06)",
+                    }}
+                  >
+                    {sponsor.category}
+                  </Box>
+                </Box>
+              </Box>
+
+              {sponsor.addressLines?.map((line) => (
+                <Typography key={`${sponsor.name}-${line}`} sx={{ color: "rgba(255, 255, 255, 0.74)" }}>
+                  {line}
+                </Typography>
+              ))}
+
+              {sponsor.note && (
+                <Typography sx={{ color: "rgba(255, 255, 255, 0.62)", mt: 0.8, fontStyle: "italic" }}>
+                  {sponsor.note}
+                </Typography>
+              )}
+            </Paper>
+          ))}
+        </Box>
       </GlassCard>
 
       {/* What You Can Do Section */}
