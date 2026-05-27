@@ -13,7 +13,7 @@ export default function Home() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   // Navigation items
-  const navItems = ["Mission", "What We Do", "What You Can Do", "Donate", "Contact"];
+  const navItems = ["Mission", "What We Do", "Sponsors", "What You Can Do", "Donate", "Contact"];
   
   // Images from public directory, ordered 1-6
   const imageUrls = [
