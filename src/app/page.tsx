@@ -74,7 +74,7 @@ export default function Home() {
           sx={{ 
             position: isMobile ? "static" : "fixed",
             width: isMobile ? "100%" : "50%",
-            height: isMobile ? "80vh" : "calc(100vh - 64px)",
+            height: isMobile ? "60vh" : "calc(100vh - 64px)",
             top: "64px",
             left: 0,
             display: "flex",
@@ -145,7 +145,7 @@ export default function Home() {
                   letterSpacing: '0.1em',
                   fontSize: isMobile ? '1.1rem' : '1.4rem',
                   color: '#A71930',
-                  fontWeight: 900,
+                  fontWeight: 1000,
                 }}
               >
                 HELPING THE HOUSTON COMMUNITY
@@ -227,7 +227,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              <Typography 
+               <Typography 
                 variant="body1" 
                 sx={{ 
                   mb: isMobile ? 8 : 4,
@@ -236,8 +236,9 @@ export default function Home() {
                   lineHeight: 1.7,
                   color: 'rgba(255, 255, 255, 0.9)',
                 }}
-              >
-This year&apos;s event is right around the corner, please support us if you can!              </Typography>
+              > 
+{/* This year&apos;s event is right around the corner, please support us if you can!          */}     
+</Typography> 
             </motion.div>
           </Box>
           
@@ -250,7 +251,7 @@ This year&apos;s event is right around the corner, please support us if you can!
             sx={{ 
               padding: isMobile ? "2rem 0" : "1rem 2rem 0rem",
               position: "relative",
-              height: isMobile ? "60vh" : "95vh",
+              height: isMobile ? "40vh" : "95vh",
               marginTop: isMobile ? '-.5rem' : "auto",
             }}
           >            
@@ -264,11 +265,11 @@ This year&apos;s event is right around the corner, please support us if you can!
               {imageUrls.map((url, index) => {
                 // Calculate positions for scrapbook effect
                 const positions = [
-                  { top: isMobile ? '-15%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
+                  { top: isMobile ? '-55%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
                   { top: isMobile ? '0%' : '10%', left: '25%', zIndex: 8, rotate: 5 },
-                  { top: isMobile ? '-10%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
-                  { top: isMobile ? "15%" : '35%', left: '0%', zIndex: 7, rotate: 7 },
-                  { top: isMobile ? '15%' : '45%', left: isMobile ? '50%' : '60%', zIndex: 2, rotate: -5 },
+                  { top: isMobile ? '-40%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
+                  { top: isMobile ? "45%" : '35%', left: '0%', zIndex: 7, rotate: 7 },
+                  { top: isMobile ? '45%' : '45%', left: isMobile ? '50%' : '60%', zIndex: 2, rotate: -5 },
                   // { top: '40%', left: '60%', zIndex: 1, rotate: 9 },
                 ];
                 
