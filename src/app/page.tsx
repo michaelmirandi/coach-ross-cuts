@@ -267,7 +267,7 @@ export default function Home() {
                 const positions = [
                   { top: isMobile ? '-15%' : '-5%', left: '5%', zIndex: 6, rotate: -8 },
                   { top: isMobile ? '0%' : '10%', left: '25%', zIndex: 8, rotate: 5 },
-                  { top: isMobile ? '-10%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
+                  { top: isMobile ? '0%' : '-3%', left: '55%', zIndex: 4, rotate: -6 },
                   { top: isMobile ? "35%" : '35%', left: '0%', zIndex: 7, rotate: 7 },
                   { top: isMobile ? '35%' : '45%', left: isMobile ? '50%' : '60%', zIndex: 2, rotate: -5 },
                   // { top: '40%', left: '60%', zIndex: 1, rotate: 9 },
