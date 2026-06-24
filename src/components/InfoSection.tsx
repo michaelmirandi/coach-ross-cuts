@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { Box, Typography, Paper, useTheme, alpha, Button, Link } from "@mui/material";
 import { motion } from "framer-motion";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import EmailIcon from '@mui/icons-material/Email';
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Image from "next/image";
 import { sponsors } from "../data/sponsors";
+
+const HIGHLIGHTS_VIDEO_ID = 'iIZWm4Gut50';
 
 interface GlassCardProps {
     children: React.ReactNode;
@@ -96,6 +100,36 @@ export default function InfoSection({isMobile}: InfoSectionProps) {
 
   return (
     <>
+        <GlassCard delay={0} id="highlights" isMobile={isMobile}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              pt: "56.25%",
+              borderRadius: "12px",
+              overflow: "hidden",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 8px 24px rgba(0, 0, 0, 0.35)",
+            }}
+          >
+            <Box
+              component="iframe"
+              src={`https://www.youtube.com/embed/${HIGHLIGHTS_VIDEO_ID}`}
+              title="Coach's Cuts event highlights"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0,
+              }}
+            />
+          </Box>
+        </GlassCard>
+
       {/* Mission Statement Section */}
       <GlassCard delay={0.1} id='mission' isMobile={isMobile}>
         <SectionTitle isMobile={isMobile}>Mission Statement</SectionTitle>
