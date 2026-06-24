@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { Box, Typography, Paper, useTheme, alpha, Button, Link } from "@mui/material";
 import { motion } from "framer-motion";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import EmailIcon from '@mui/icons-material/Email';
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Image from "next/image";
 import { sponsors } from "../data/sponsors";
 
